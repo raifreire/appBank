@@ -27,7 +27,7 @@ while True:
                         depositList.append(amount)
                         i['deposit'] = depositList[:]
                         depositList.clear()
-                        print(i)
+                        #print(i)
                         break
             condition = str(input("Deseja realizar novo deposito s/n? "))
             if condition == 'n':
