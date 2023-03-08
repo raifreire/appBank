@@ -19,21 +19,26 @@ while True:
                 break
     elif condition == 2:
         while True:
-            validate = str(input("Qual o cpf do titular da conta: "))
+            validate = str(input("Qual o cpf do titular da conta: "))            
             for i in dataList:
                 for k, v in i.items():
                     if validate == v:
-                        amount = float(input('Qual o valor do deposito: '))
-                        depositList.append(amount)
-                        i['deposit'] = depositList[:]
                         depositList.clear()
-                        #print(i)
-                        break
+                        while True:
+                            depositList.append(float(input('Qual o valor do deposito: ')))
+                            #i['deposit'] = depositList[:]
+                            dictDep = {}
+                            dictDep = i.copy()
+                            dictDep["deposit"] = depositList[:]    
+                            print('dictDep', dictDep)
+                            cond = str(input("novo valor s/n? "))
+                            if cond == 'n':            
+                                break
+                                    
             condition = str(input("Deseja realizar novo deposito s/n? "))
             if condition == 'n':
                 break
     
     elif condition == 0:
         break
-
 print(dataList)
